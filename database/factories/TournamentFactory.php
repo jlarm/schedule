@@ -10,7 +10,7 @@ class TournamentFactory extends Factory
 {
     protected $model = Tournament::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
             'uuid' => $this->faker->uuid(),
