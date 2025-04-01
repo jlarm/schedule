@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Enum\State;
+use App\Observers\TournamentObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+#[ObservedBy(TournamentObserver::class)]
 class Tournament extends Model
 {
     use HasFactory;
@@ -17,7 +21,7 @@ class Tournament extends Model
             'start_date' => 'timestamp',
             'end_date' => 'timestamp',
             'city' => 'string',
-            'state' => 'string',
+            'state' => State::class,
             'result' => 'string',
         ];
     }
